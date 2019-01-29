@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/SILVER"
+        android:alpha=".7"
+        android:layout_height="1dp"/>
+    <TextView
+        android:id="@+id/txt_receive"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:text="-"
+        android:textSize="14dp" />
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/SILVER"
+        android:alpha=".7"
+        android:layout_height="1dp"/>
+
+    <TextView
+        android:id="@+id/txt_receive_note"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:singleLine="true"
+        android:padding="10dp"
+        android:text="-"
+        android:textSize="14dp" />
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/SILVER"
+        android:alpha=".7"
+        android:layout_height="1dp"/>
+
+    <TextView
+        android:id="@+id/txt_receive_date"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:text="-"
+        android:textSize="14dp" />
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/SILVER"
+        android:alpha=".7"
+        android:layout_height="1dp"/>
+
+    <TextView
+        android:id="@+id/txt_receive_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:text="-"
+        android:textSize="14dp" />
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/SILVER"
+        android:alpha=".7"
+        android:layout_height="1dp"/>
+
+    <TextView
+        android:id="@+id/txt_send"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:text="-"
+        android:textSize="14dp" />
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/SILVER"
+        android:alpha=".7"
+        android:layout_height="1dp"/>
+
+    <TextView
+        android:id="@+id/txt_send_note"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:text="-"
+        android:textSize="14dp" />
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/SILVER"
+        android:alpha=".7"
+        android:layout_height="1dp"/>
+
+    <TextView
+        android:id="@+id/txt_send_date"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:text="-"
+        android:textSize="14dp" />
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/SILVER"
+        android:alpha=".7"
+        android:layout_height="1dp"/>
+
+    <TextView
+        android:id="@+id/txt_send_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:text="-"
+        android:textSize="14dp" />
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/SILVER"
+        android:alpha=".7"
+        android:layout_height="1dp"/>
+
+    <TextView
+        android:id="@+id/txt_day_work"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:text="-"
+        android:textSize="14dp" />
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/SILVER"
+        android:alpha=".7"
+        android:layout_height="1dp"/>
+
+    <TextView
+        android:id="@+id/txt_lost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:text="-"
+        android:textSize="14dp" />
+
+
+</LinearLayout>
+
+

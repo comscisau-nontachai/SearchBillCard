@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/MIDNIGHT_BLUE</color>
+    <color name="colorPrimaryDark">@color/WET_ASPHALT</color>
+
+    <color name="colorAccent">#bf7d0e</color>
+
+    <color name="blue_main_bg">#4A90E2</color>
+    <color name="yellow_btn_search">#F5A623</color>
+    <color name="yellow_btn_search_active">#bf7d0e</color>
+    <color name="white_bg">#FCFCFD</color>
+    <color name="gray_dark">#343434</color>
+    <color name="gray2">#F1F1F1</color>
+    <color name="color_panel_login">#3D4751</color>
+
+    <color name="col_1_head">#F2DEDE</color>
+    <color name="col_2_head">#FCF8E3</color>
+    <color name="col_3_head">#D9EDF7</color>
+    <color name="col_4_head">#DFF0D8</color>
+    <color name="col_1">#55F2DEDE</color>
+    <color name="col_2">#55FCF8E3</color>
+    <color name="col_3">#55D9EDF7</color>
+    <color name="col_4">#55DFF0D8</color>
+
+    <color name="lightblue">#333C4A57</color>
+
+
+</resources>
