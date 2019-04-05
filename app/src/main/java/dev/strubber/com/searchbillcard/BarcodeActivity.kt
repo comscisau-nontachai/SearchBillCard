@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.os.AsyncTask
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.SystemClock
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.support.v4.content.ContextCompat.startActivity
@@ -71,19 +72,19 @@ class BarcodeActivity : AppCompatActivity() {
 
             override fun receiveDetections(p0: Detector.Detections<Barcode>?) {
                 val qrcodes: SparseArray<Barcode> = p0!!.detectedItems
-
-                if (qrcodes.size() != 0) {
+                                if (qrcodes.size() != 0) {
                     txt_result.post {
                         if (qrcodes.valueAt(0) != null) {
                             count++
                             if (count == 1) {
-                                //txt_result.append(qrcodes.valueAt(0).displayValue)
+                                txt_result.append(qrcodes.valueAt(0).displayValue)
                                 SearchFormScan(qrcodes.valueAt(0).displayValue).execute()
                                 cameraSource.stop()
                             }
                         }
                     }
                 }
+
             }
         })
 
@@ -109,6 +110,7 @@ class BarcodeActivity : AppCompatActivity() {
         var partnumber = ""
         var order_no = ""
         var part_id = ""
+        var id = ""
 
         var count = 0
 
@@ -131,13 +133,25 @@ class BarcodeActivity : AppCompatActivity() {
 
             val conn = connectionDB.CONN("HR_management")
 
-            val query = "select DISTINCT ppm.no_billcard,ppm.part,ppm.Expr1,\n" +
-                    "CASE   \n" +
-                    "      WHEN ppm.sale_order IS NULL THEN pp.sale_order   \n" +
-                    "      WHEN ppm.sale_order IS NOT NULL THEN ppm.sale_order\n" +
-                    "   END as sale_order1\n" +
-                    "from ST_PRODUCTION..production_process_master ppm INNER JOIN ST_PRODUCTION..production_process pp ON ppm.no_billcard = pp.no_billcard\n" +
-                    "where ppm.no_billcard = '$str' and ppm.IsDelete=0 and pp.IsDelete=0"
+
+            val query = """
+                        select * from
+                        (select distinct d1.no_billcard,d1.id,d1.part,d1.date,d1.qty,d1.remark,d1.Expr1,d1.sale_order,d2.partnumber,d2.de1,d2.de2,d2.de3,d2.de4
+                        ,(DATEDIFF(day, d1.ts_create,GETDATE()))+1 as daywait,d1.ts_create
+                        from ST_PRODUCTION..v_BillCardData as d1
+                        LEFT JOIN ST_PRODUCTION..department_flow as d2 ON d2.id = d1.part
+                        LEFT JOIN ST_PRODUCTION..production_process_master as d3 ON d3.no_billcard=d1.no_billcard
+                        where d1.IsDelete='0' and d1.IsReceive='0' and d1.IsProd = '0' and d2.de1='1' and d3.no_billcard IS NULL
+                        union
+                        select distinct d1.no_billcard,d1.id,d1.part,d1.date,d1.qty,d1.remark,d1.Expr1,d1.sale_order,d2.partnumber,d2.de1,d2.de2,d2.de3,d2.de4
+                        ,(DATEDIFF(day, d1.ts_create,GETDATE()))+1 as daywait,d1.ts_create
+                        from ST_PRODUCTION..production_process_master as d1
+                        LEFT JOIN ST_PRODUCTION..department_flow as d2 ON d2.id = d1.part
+                        where d1.IsDelete='0' and d1.IsReceive='0' and d1.IsProd = '0' and d2.de1='1' ) as bill
+                        where no_billcard LIKE '%$str%'
+                        order by daywait desc
+            """.trimIndent()
+
             val stmt = conn.createStatement()
             val rs = stmt.executeQuery(query)
 
@@ -148,8 +162,9 @@ class BarcodeActivity : AppCompatActivity() {
 
                 billcard_no = rs.getString("no_billcard")
                 partnumber = rs.getString("Expr1")
-                order_no = rs.getString("sale_order1")
+                order_no = rs.getString("sale_order") ?: ""
                 part_id = rs.getString("part")
+                id = rs.getString("id")
 
 
             }
@@ -175,11 +190,13 @@ class BarcodeActivity : AppCompatActivity() {
                 pDialog.show()
 
             } else if (count >= 1) {
-                val intent = Intent(applicationContext, Detail2Activity::class.java)
-                intent.putExtra("BILLCARD_NO", billcard_no)
-                intent.putExtra("PARTNUMBER", partnumber)
-                intent.putExtra("ORDER_NO", order_no)
-                intent.putExtra("PART_ID", part_id)
+                val intent = Intent(applicationContext, Detail2Activity::class.java).apply {
+                    putExtra("BILLCARD_NO", billcard_no)
+                    putExtra("PARTNUMBER", partnumber)
+                    putExtra("ORDER_NO", order_no)
+                    putExtra("PART_ID", part_id)
+                    putExtra("ID",id)
+                }
                 startActivity(intent)
                 finish()
             }

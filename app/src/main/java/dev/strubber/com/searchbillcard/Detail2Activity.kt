@@ -50,6 +50,7 @@ class Detail2Activity : AppCompatActivity() {
     private var partNumber = ""
     private var orderNo = ""
     private var partId = ""
+    private var id = ""
 
     val listNameProcess2: ArrayList<String> = ArrayList()
     val listNameProcess2ID: ArrayList<String> = ArrayList()
@@ -72,6 +73,7 @@ class Detail2Activity : AppCompatActivity() {
         partNumber = intent.getStringExtra("PARTNUMBER")
         orderNo = intent.getStringExtra("ORDER_NO")
         partId = intent.getStringExtra("PART_ID")
+        id = intent.getStringExtra("ID")
         supportActionBar?.title = "หมายเลขบิลการ์ด $billCard"
 
 
@@ -782,9 +784,6 @@ class Detail2Activity : AppCompatActivity() {
             return null
         }
 
-        override fun onPostExecute(result: String?) {
-            super.onPostExecute(result)
-        }
     }
 
     inner class UpdateSend(val send: String, val remarkSend: String, val upname: String, val selectWorkerID: String, val personnelNo: String, val billcard: String, val department: String) : AsyncTask<Unit, Unit, String>() {
@@ -799,15 +798,83 @@ class Detail2Activity : AppCompatActivity() {
         }
     }
 
+    inner class InsertBillcardToMaster : AsyncTask<Unit,Unit,String>(){
+        override fun doInBackground(vararg p0: Unit?): String {
+            val conn = connectionDB.CONN("ST_PRODUCTION")
+
+            val query = """
+                            INSERT INTO ST_PRODUCTION..production_process_master (id
+                  ,no_billcard
+                  ,part
+                  ,type_id
+                  ,unit_id
+                  ,so_id
+                  ,date
+                  ,qty
+                  ,qty_prod
+                  ,detail_ref
+                  ,tran_ref
+                  ,dating_ref
+                  ,ts_create
+                  ,ts_name
+                  ,IsDelete
+                  ,IsProd
+                  ,IsReceive
+                  ,remark
+                  ,prod_remark
+                  ,record_id
+                  ,Expr1
+                  ,relate
+                  ,type
+                  ,brand_id
+                  ,description
+                  ,sale_order)
+            SELECT id
+                  ,no_billcard
+                  ,part
+                  ,type_id
+                  ,unit_id
+                  ,so_id
+                  ,date
+                  ,qty
+                  ,qty_prod
+                  ,detail_ref
+                  ,tran_ref
+                  ,dating_ref
+                  ,ts_create
+                  ,ts_name
+                  ,IsDelete
+                  ,IsProd
+                  ,IsReceive
+                  ,remark
+                  ,prod_remark
+                  ,record_id
+                  ,Expr1
+                  ,relate
+                  ,type
+                  ,brand_id
+                  ,description
+                  ,sale_order
+            FROM ST_PRODUCTION..v_BillCardData
+            WHERE id = $id
+            """.trimIndent()
+
+            val stmt = conn.createStatement()
+            stmt.executeUpdate(query)
+            
+            conn.close()
+            return ""
+        }
+    }
+
     inner class UpdateSendIsComplete(val billcard: String) : AsyncTask<Unit, Unit, String>() {
         override fun doInBackground(vararg p0: Unit?): String {
-            val conn = connectionDB.CONN("HR_management")
+            val conn = connectionDB.CONN("ST_PRODUCTION")
 
             val query = "update ST_PRODUCTION..production_process set IsComplete = 1,ts_complete = GETDATE() where no_billcard = '$billcard'"
             val stmt = conn.createStatement()
             stmt.executeUpdate(query)
 
-            Log.d("detail", "query :$query")
             conn.close()
             return ""
         }
@@ -960,6 +1027,10 @@ class Detail2Activity : AppCompatActivity() {
 
                 //insert receive
                 InsertReceive(billCard, partId, orderNo, edtReceive.text.toString(), department, edtRemarkReceive.text.toString(), MainActivity.name, MainActivity.personal_no).execute()
+
+                //insert billcard to master
+                InsertBillcardToMaster().execute()
+
                 alertDialog.dismiss()
                 finish()
             }
@@ -1070,6 +1141,9 @@ class Detail2Activity : AppCompatActivity() {
                     } else {
                         Log.d("detail", "this dep $department Not IsComplete")
                     }
+
+
+
                     alertDialog.dismiss()
                     finish()
                 }

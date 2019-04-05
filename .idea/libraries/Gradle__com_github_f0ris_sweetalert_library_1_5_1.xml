@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.f0ris.sweetalert:library-1.5.1">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-1.5.1.aar/538045764b351b1e698b3e23030c8ac7/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-1.5.1.aar/538045764b351b1e698b3e23030c8ac7/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-1.5.1.aar/7de52a73085517c5515bdfbc89a36a97/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/library-1.5.1.aar/7de52a73085517c5515bdfbc89a36a97/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

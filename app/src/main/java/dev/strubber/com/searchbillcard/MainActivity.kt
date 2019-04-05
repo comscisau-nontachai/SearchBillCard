@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
     val listSearch: ArrayList<SearchModel> = ArrayList()
 
     ///User Data
-    data class SearchModel(var billcard_no: String, var partnumber: String, var order_no: String, var part_id: String)
+    data class SearchModel(var billcard_no: String, var partnumber: String, var order_no: String, var part_id: String,val id:String)
 
     companion object {
         var loginId = ""
@@ -144,12 +144,17 @@ class MainActivity : AppCompatActivity() {
             holder.tv_order_no.text = items[position].order_no
 
             holder.linear_holder.setOnClickListener {
-                val intent = Intent(applicationContext, Detail2Activity::class.java)
-                intent.putExtra("BILLCARD_NO", listSearch[position].billcard_no)
-                intent.putExtra("PARTNUMBER", listSearch[position].partnumber)
-                intent.putExtra("ORDER_NO", listSearch[position].order_no)
-                intent.putExtra("PART_ID", listSearch[position].part_id)
+                val intent = Intent(applicationContext, Detail2Activity::class.java).apply {
+                    putExtra("BILLCARD_NO", listSearch[position].billcard_no)
+                    putExtra("PARTNUMBER", listSearch[position].partnumber)
+                    putExtra("ORDER_NO", listSearch[position].order_no)
+                    putExtra("PART_ID", listSearch[position].part_id)
+                    putExtra("ID", listSearch[position].id)
+                }
                 startActivity(intent)
+
+
+
             }
         }
     }
@@ -182,21 +187,23 @@ class MainActivity : AppCompatActivity() {
 
             val conn = connectionDB.CONN("HR_management")
 
-            val query = "select * from\n" +
-                    "(select distinct d1.no_billcard,d1.id,d1.part,d1.date,d1.qty,d1.remark,d1.Expr1,d1.sale_order,d2.partnumber,d2.de1,d2.de2,d2.de3,d2.de4\n" +
-                    ",(DATEDIFF(day, d1.ts_create,GETDATE()))+1 as daywait,d1.ts_create\n" +
-                    "from ST_PRODUCTION..v_BillCardData as d1\n" +
-                    "LEFT JOIN ST_PRODUCTION..department_flow as d2 ON d2.id = d1.part\n" +
-                    "LEFT JOIN ST_PRODUCTION..production_process_master as d3 ON d3.no_billcard=d1.no_billcard\n" +
-                    "where d1.IsDelete='0' and d1.IsReceive='0' and d1.IsProd = '0' and d2.de1='1' and d3.no_billcard IS NULL\n" +
-                    "union\n" +
-                    "select distinct d1.no_billcard,d1.id,d1.part,d1.date,d1.qty,d1.remark,d1.Expr1,d1.sale_order,d2.partnumber,d2.de1,d2.de2,d2.de3,d2.de4\n" +
-                    ",(DATEDIFF(day, d1.ts_create,GETDATE()))+1 as daywait,d1.ts_create\n" +
-                    "from ST_PRODUCTION..production_process_master as d1\n" +
-                    "LEFT JOIN ST_PRODUCTION..department_flow as d2 ON d2.id = d1.part\n" +
-                    "where d1.IsDelete='0' and d1.IsReceive='0' and d1.IsProd = '0' and d2.de1='1' ) as bill\n" +
-                    "where no_billcard LIKE '%$str%'\n" +
-                    "order by daywait desc\n"
+            val query = """
+                        select * from
+                        (select distinct d1.no_billcard,d1.id,d1.part,d1.date,d1.qty,d1.remark,d1.Expr1,d1.sale_order,d2.partnumber,d2.de1,d2.de2,d2.de3,d2.de4
+                        ,(DATEDIFF(day, d1.ts_create,GETDATE()))+1 as daywait,d1.ts_create
+                        from ST_PRODUCTION..v_BillCardData as d1
+                        LEFT JOIN ST_PRODUCTION..department_flow as d2 ON d2.id = d1.part
+                        LEFT JOIN ST_PRODUCTION..production_process_master as d3 ON d3.no_billcard=d1.no_billcard
+                        where d1.IsDelete='0' and d1.IsReceive='0' and d1.IsProd = '0' and d2.de1='1' and d3.no_billcard IS NULL
+                        union
+                        select distinct d1.no_billcard,d1.id,d1.part,d1.date,d1.qty,d1.remark,d1.Expr1,d1.sale_order,d2.partnumber,d2.de1,d2.de2,d2.de3,d2.de4
+                        ,(DATEDIFF(day, d1.ts_create,GETDATE()))+1 as daywait,d1.ts_create
+                        from ST_PRODUCTION..production_process_master as d1
+                        LEFT JOIN ST_PRODUCTION..department_flow as d2 ON d2.id = d1.part
+                        where d1.IsDelete='0' and d1.IsReceive='0' and d1.IsProd = '0' and d2.de1='1' ) as bill
+                        where no_billcard LIKE '%$str%'
+                        order by daywait desc
+            """.trimIndent()
             val stmt = conn.createStatement()
             val rs = stmt.executeQuery(query)
 
@@ -206,8 +213,9 @@ class MainActivity : AppCompatActivity() {
                 partnumber = rs.getString("Expr1")
                 order_no = rs.getString("sale_order")?:""
                 part_id = rs.getString("part")
+                val id = rs.getString("id")
 
-                val data = SearchModel(billcard_no, partnumber, order_no, part_id)
+                val data = SearchModel(billcard_no, partnumber, order_no, part_id,id)
                 listSearch.add(data)
             }
             conn.close()
