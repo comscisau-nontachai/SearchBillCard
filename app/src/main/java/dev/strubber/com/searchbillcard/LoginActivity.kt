@@ -5,7 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.PorterDuff
 import android.os.AsyncTask
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.Preference
 import android.util.Log
@@ -101,7 +101,7 @@ class LoginActivity : AppCompatActivity() {
                             LoginAsyn(it).execute()
                         }
                     },
-                    Response.ErrorListener { Toast.makeText(this, "can't connect!!", Toast.LENGTH_SHORT).show(); })
+                    Response.ErrorListener { Toast.makeText(this, "can't connect!! \n ${it.message}", Toast.LENGTH_SHORT).show(); })
             val requestQueue = Volley.newRequestQueue(this)
             requestQueue.add(request)
         }

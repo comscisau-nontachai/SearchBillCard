@@ -1,23 +1,14 @@
 package dev.strubber.com.searchbillcard
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.AsyncTask
-import android.os.Build
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 
-import android.support.v4.content.ContextCompat.startActivity
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.SearchView
-import android.text.Editable
-import android.text.TextWatcher
-import android.transition.TransitionManager
-import android.util.Log
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.appcompat.widget.SearchView
 
 import android.view.LayoutInflater
 import android.view.View
@@ -37,10 +28,6 @@ import com.bumptech.glide.request.RequestOptions
 import dmax.dialog.SpotsDialog
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_by_search.view.*
-import okhttp3.internal.Util
-import org.json.JSONArray
-import java.text.DecimalFormat
-import java.text.NumberFormat
 import java.util.*
 
 
@@ -125,7 +112,7 @@ class MainActivity : AppCompatActivity() {
         img_exit.setOnClickListener { finish() }
     }
 
-    inner class RvAdapter(private val items: ArrayList<SearchModel>, private val context: Context) : RecyclerView.Adapter<ViewHolder>() {
+    inner class RvAdapter(private val items: ArrayList<SearchModel>, private val context: Context) : androidx.recyclerview.widget.RecyclerView.Adapter<ViewHolder>() {
 
         // Gets the number of animals in the list
         override fun getItemCount(): Int {
@@ -144,7 +131,7 @@ class MainActivity : AppCompatActivity() {
             holder.tv_order_no.text = items[position].order_no
 
             holder.linear_holder.setOnClickListener {
-                val intent = Intent(applicationContext, Detail2Activity::class.java).apply {
+                val intent = Intent(applicationContext, DetailActivity::class.java).apply {
                     putExtra("BILLCARD_NO", listSearch[position].billcard_no)
                     putExtra("PARTNUMBER", listSearch[position].partnumber)
                     putExtra("ORDER_NO", listSearch[position].order_no)
@@ -158,7 +145,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
         val tv_billcard: TextView = view.txt_billcard_no
         val tv_partnumber: TextView = view.txt_partnumber
         val tv_order_no: TextView = view.txt_order_no
@@ -227,7 +214,7 @@ class MainActivity : AppCompatActivity() {
             super.onPostExecute(result)
 
             dialog.dismiss()
-            recycler_search.layoutManager = LinearLayoutManager(applicationContext)
+            recycler_search.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(applicationContext)
             recycler_search.adapter = RvAdapter(listSearch, applicationContext)
         }
     }

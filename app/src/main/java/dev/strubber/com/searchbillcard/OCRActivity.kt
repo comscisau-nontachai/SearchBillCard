@@ -3,10 +3,10 @@ package dev.strubber.com.searchbillcard
 import android.Manifest
 import android.content.pm.PackageManager
 import android.graphics.Camera
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.app.ActivityCompat
-import android.support.v4.content.ContextCompat
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import android.util.Log
 import android.util.SparseArray
 import android.view.SurfaceHolder

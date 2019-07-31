@@ -1,29 +1,20 @@
 package dev.strubber.com.searchbillcard
 
 import android.Manifest
-import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.AsyncTask
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.SystemClock
-import android.support.v4.app.ActivityCompat
-import android.support.v4.content.ContextCompat
-import android.support.v4.content.ContextCompat.startActivity
-import android.support.v7.app.AlertDialog
-import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import android.util.SparseArray
 import android.view.SurfaceHolder
-import android.view.View
-import android.widget.Toast
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.android.gms.vision.CameraSource
 import com.google.android.gms.vision.Detector
 import com.google.android.gms.vision.barcode.Barcode
 import com.google.android.gms.vision.barcode.BarcodeDetector
-import dev.strubber.com.searchbillcard.R.id.*
 import dmax.dialog.SpotsDialog
 import kotlinx.android.synthetic.main.activity_barcode.*
 
@@ -190,7 +181,7 @@ class BarcodeActivity : AppCompatActivity() {
                 pDialog.show()
 
             } else if (count >= 1) {
-                val intent = Intent(applicationContext, Detail2Activity::class.java).apply {
+                val intent = Intent(applicationContext, DetailActivity::class.java).apply {
                     putExtra("BILLCARD_NO", billcard_no)
                     putExtra("PARTNUMBER", partnumber)
                     putExtra("ORDER_NO", order_no)

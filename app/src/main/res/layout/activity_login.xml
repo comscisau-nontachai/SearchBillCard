@@ -7,7 +7,7 @@
     android:background="@color/lightblue"
     tools:context=".LoginActivity">
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/margin_main_login"
@@ -67,7 +67,7 @@
                     android:gravity="bottom"
                     android:layout_height="0dp">
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
@@ -78,7 +78,7 @@
                             android:hint="USERNAME"
                             android:singleLine="true" />
 
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -88,7 +88,7 @@
                     android:gravity="center_vertical"
                     android:layout_marginTop="20dp">
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
@@ -100,12 +100,12 @@
                             android:inputType="textPassword"
                             android:singleLine="true" />
 
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <android.support.v7.widget.AppCompatCheckBox
+                    <androidx.appcompat.widget.AppCompatCheckBox
                         android:layout_width="match_parent"
                         android:text="Remember me."
                         android:checked="true"
@@ -133,7 +133,7 @@
 
             </LinearLayout>
         </LinearLayout>
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:layout_width="match_parent"

@@ -1,0 +1,1123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray2"
+    android:orientation="vertical">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/WET_ASPHALT"
+        android:fitsSystemWindows="true"
+        android:minHeight="?attr/actionBarSize"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/linear_detail_product"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/toolbar"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".4">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="5dp"
+                            app:cardCornerRadius="5dp"
+                            app:cardUseCompatPadding="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight=".02"
+                                    android:background="@color/ALIZARIN">
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1">
+
+                                    <ImageView
+                                        android:id="@+id/image_product"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:padding="30dp"
+                                        android:src="@drawable/no_image" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".5">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="5dp"
+                            app:cardCornerRadius="5dp"
+                            app:cardUseCompatPadding="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="7dp"
+                                    android:background="@color/BELIZE_HOLE">
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:padding="10dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:orientation="vertical">
+
+
+
+                                        <TextView
+                                            android:id="@+id/txt_part"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:text="000-000-00"
+                                            android:textSize="40sp" />
+
+                                        <TextView
+                                            android:id="@+id/txt_relate"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:padding="10dp"
+                                            android:text="รีเรท : " />
+
+                                        <View
+                                            android:layout_width="match_parent"
+                                            android:layout_height="1dp"
+                                            android:alpha=".6"
+                                            android:background="@android:color/darker_gray" />
+
+                                        <TextView
+                                            android:id="@+id/txt_group"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:padding="10dp"
+                                            android:text="กลุ่มสินค้า : " />
+
+                                        <TextView
+                                            android:id="@+id/txt_desc"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:padding="10dp"
+                                            android:text="รายละเอียดสินค้า : " />
+
+                                        <TextView
+                                            android:id="@+id/txt_steel"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:padding="10dp"
+                                            android:text=" เหล็ก : " />
+
+                                        <TextView
+                                            android:id="@+id/txt_composition"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:padding="10dp"
+                                            android:text=" ส่วนประกอบ : " />
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+
+
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!--Department data-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginStart="5dp"
+                        app:cardCornerRadius="5dp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight=".01"
+                                android:background="@color/NEPHRITIS"></LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:padding="10dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/txt_title1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="ข้อมูลแต่ละแผนก"
+                                        android:textSize="20sp" />
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:layout_marginBottom="10dp"
+                                        android:layout_marginTop="10dp"
+                                        android:alpha=".6"
+                                        android:background="@android:color/darker_gray" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+                                        <!--depart-->
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:orientation="horizontal">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1">
+
+                                                <TextView
+                                                    android:id="@+id/txt_date_plan"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:gravity="center_vertical"
+                                                    android:text="วันที่วางแผน : " />
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1">
+
+                                                <TextView
+                                                    android:id="@+id/txt_order_no"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:gravity="center_vertical"
+                                                    android:text="เลขที่ออเดอร์ : " />
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1">
+
+                                                <TextView
+                                                    android:id="@+id/txt_quantity"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:gravity="center_vertical"
+                                                    android:text="จำนวน : " />
+                                            </LinearLayout>
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:orientation="horizontal">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1">
+
+                                                <TextView
+                                                    android:id="@+id/txt_date_produce"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:gravity="center_vertical"
+                                                    android:text="วันที่ผลิต : " />
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1">
+
+                                                <TextView
+                                                    android:id="@+id/txt_partnumber"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:gravity="center_vertical"
+                                                    android:text="พาร์ทนัมเบอร์ : " />
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_weight="1"
+                                                android:orientation="vertical">
+
+                                                <TextView
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:paddingTop="10dp"
+                                                    android:text="การไหลแผนก : " />
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:gravity="center_vertical"
+                                                    android:orientation="horizontal"
+                                                    android:paddingBottom="10dp"
+                                                    android:paddingTop="10dp">
+                                                    <!--1 step-->
+                                                    <TextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_marginStart="5dp"
+                                                        android:gravity="center_vertical"
+                                                        android:text="1. " />
+
+                                                    <ImageView
+                                                        android:id="@+id/img_flow1"
+                                                        android:layout_width="24dp"
+                                                        android:layout_height="24dp"
+                                                        android:src="@drawable/cancel" />
+                                                    <!--2 step-->
+                                                    <TextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_marginStart="10dp"
+                                                        android:gravity="center_vertical"
+                                                        android:text="2. " />
+
+                                                    <ImageView
+                                                        android:id="@+id/img_flow2"
+                                                        android:layout_width="24dp"
+                                                        android:layout_height="24dp"
+                                                        android:src="@drawable/cancel" />
+                                                    <!--3 step-->
+                                                    <TextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_marginStart="10dp"
+                                                        android:gravity="center_vertical"
+                                                        android:text="3. " />
+
+                                                    <ImageView
+                                                        android:id="@+id/img_flow3"
+                                                        android:layout_width="24dp"
+                                                        android:layout_height="24dp"
+                                                        android:src="@drawable/cancel" />
+                                                    <!--4 step-->
+                                                    <TextView
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_marginStart="10dp"
+                                                        android:gravity="center_vertical"
+                                                        android:text="4. " />
+
+                                                    <ImageView
+                                                        android:id="@+id/img_flow4"
+                                                        android:layout_width="24dp"
+                                                        android:layout_height="24dp"
+                                                        android:src="@drawable/cancel" />
+                                                </LinearLayout>
+
+
+                                            </LinearLayout>
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:orientation="horizontal">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1">
+
+                                                <TextView
+                                                    android:id="@+id/txt_date_shipping"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:gravity="center_vertical"
+                                                    android:text="วันที่ลงเรือ : " />
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1">
+
+                                                <TextView
+                                                    android:id="@+id/txt_billcard_no"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:gravity="center_vertical"
+                                                    android:text="เลขที่บิลการ์ด : " />
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1">
+
+                                                <TextView
+                                                    android:id="@+id/txt_day_work"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:gravity="center_vertical"
+                                                    android:text="วันที่ใช้ทำงาน : " />
+                                            </LinearLayout>
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:orientation="horizontal">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1">
+
+                                                <TextView
+                                                    android:id="@+id/txt_note"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:layout_marginTop="10dp"
+                                                    android:gravity="center_vertical"
+                                                    android:text="หมายเหตุ : " />
+                                            </LinearLayout>
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:layout_marginTop="10dp"
+                                        android:alpha=".6"
+                                        android:visibility="gone"
+                                        android:background="@android:color/darker_gray" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_marginTop="20dp"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <LinearLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1.1"
+                                            android:orientation="vertical">
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1"
+                                                android:gravity="center_vertical"
+                                                android:padding="10dp"
+                                                android:text=""
+                                                android:textStyle="bold" />
+                                            <View
+                                                android:layout_width="match_parent"
+                                                android:background="@color/SILVER"
+                                                android:alpha=".7"
+                                                android:layout_height="1dp"/>
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1"
+                                                android:gravity="center_vertical"
+                                                android:padding="10dp"
+                                                android:text="จำนวนรับ"
+                                                android:textStyle="bold" />
+                                            <View
+                                                android:layout_width="match_parent"
+                                                android:background="@color/SILVER"
+                                                android:alpha=".7"
+                                                android:layout_height="1dp"/>
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1"
+                                                android:gravity="center_vertical"
+                                                android:padding="10dp"
+                                                android:text="หมายเหตุ-รับ"
+                                                android:textStyle="bold" />
+                                            <View
+                                                android:layout_width="match_parent"
+                                                android:background="@color/SILVER"
+                                                android:alpha=".7"
+                                                android:layout_height="1dp"/>
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1"
+                                                android:gravity="center_vertical"
+                                                android:padding="10dp"
+                                                android:text="วัน (รับ)"
+                                                android:textStyle="bold" />
+                                            <View
+                                                android:layout_width="match_parent"
+                                                android:background="@color/SILVER"
+                                                android:alpha=".7"
+                                                android:layout_height="1dp"/>
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1"
+                                                android:gravity="center_vertical"
+                                                android:padding="10dp"
+                                                android:text="ผู้บันทึกรับ"
+                                                android:textStyle="bold" />
+                                            <View
+                                                android:layout_width="match_parent"
+                                                android:background="@color/SILVER"
+                                                android:alpha=".7"
+                                                android:layout_height="1dp"/>
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1"
+                                                android:gravity="center_vertical"
+                                                android:padding="10dp"
+                                                android:text="จำนวนส่ง"
+                                                android:textStyle="bold" />
+                                            <View
+                                                android:layout_width="match_parent"
+                                                android:background="@color/SILVER"
+                                                android:alpha=".7"
+                                                android:layout_height="1dp"/>
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1"
+                                                android:gravity="center_vertical"
+                                                android:padding="10dp"
+                                                android:text="หมายเหตุ-ส่ง"
+                                                android:textStyle="bold" />
+                                            <View
+                                                android:layout_width="match_parent"
+                                                android:background="@color/SILVER"
+                                                android:alpha=".7"
+                                                android:layout_height="1dp"/>
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1"
+                                                android:gravity="center_vertical"
+                                                android:padding="10dp"
+                                                android:text="วัน (ส่ง)"
+                                                android:textStyle="bold" />
+                                            <View
+                                                android:layout_width="match_parent"
+                                                android:background="@color/SILVER"
+                                                android:alpha=".7"
+                                                android:layout_height="1dp"/>
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1"
+                                                android:gravity="center_vertical"
+                                                android:padding="10dp"
+                                                android:text="ผู้บันทึกส่ง"
+                                                android:textStyle="bold" />
+                                            <View
+                                                android:layout_width="match_parent"
+                                                android:background="@color/SILVER"
+                                                android:alpha=".7"
+                                                android:layout_height="1dp"/>
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1"
+                                                android:gravity="center_vertical"
+                                                android:padding="10dp"
+                                                android:text="วันที่ใช้ทำงาน"
+                                                android:textStyle="bold" />
+                                            <View
+                                                android:layout_width="match_parent"
+                                                android:background="@color/SILVER"
+                                                android:alpha=".7"
+                                                android:layout_height="1dp"/>
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1"
+                                                android:gravity="center_vertical"
+                                                android:paddingStart="10dp"
+                                                android:text="หาย ในดำเนินการ | ระหว่างส่งงาน"
+                                                android:textStyle="bold" />
+
+
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:id="@+id/linear_depart1"
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:background="@color/col_1"
+                                            android:orientation="vertical"
+                                            android:visibility="gone">
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="40dp"
+                                                android:gravity="center_vertical"
+                                                android:padding="10dp"
+                                                android:text="1. เตรียมการ"
+                                                android:background="@color/col_1_head"
+                                                android:textSize="16sp"
+                                                android:textStyle="bold" />
+
+                                            <androidx.recyclerview.widget.RecyclerView
+                                                android:id="@+id/recycler_view"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                tools:itemCount="1"
+                                                tools:listitem="@layout/item_process_product"></androidx.recyclerview.widget.RecyclerView>
+
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:id="@+id/linear_depart2"
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:background="@color/col_2"
+                                            android:orientation="vertical"
+                                            android:visibility="gone">
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="40dp"
+                                                android:gravity="center_vertical"
+                                                android:padding="10dp"
+                                                android:text="2. อัด/ฉีด"
+                                                android:background="@color/col_2_head"
+                                                android:textSize="16sp"
+                                                android:textStyle="bold" />
+
+                                            <androidx.recyclerview.widget.RecyclerView
+                                                android:id="@+id/recycler_view_dep2"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                tools:itemCount="1"
+                                                tools:listitem="@layout/item_process_product"></androidx.recyclerview.widget.RecyclerView>
+
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:id="@+id/linear_depart3"
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:background="@color/col_3"
+                                            android:orientation="vertical"
+                                            android:visibility="gone">
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="40dp"
+                                                android:gravity="center_vertical"
+                                                android:padding="10dp"
+                                                android:background="@color/col_3_head"
+                                                android:text="3. แต่ง/ปัด"
+                                                android:textSize="16sp"
+                                                android:textStyle="bold" />
+
+                                            <androidx.recyclerview.widget.RecyclerView
+                                                android:id="@+id/recycler_view_dep3"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                tools:itemCount="1"
+                                                tools:listitem="@layout/item_process_product"></androidx.recyclerview.widget.RecyclerView>
+
+
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:id="@+id/linear_depart4"
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:background="@color/col_4"
+                                            android:orientation="vertical"
+                                            android:visibility="gone">
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="40dp"
+                                                android:gravity="center_vertical"
+                                                android:padding="10dp"
+                                                android:text="4. ประกอบ"
+                                                android:background="@color/col_4_head"
+                                                android:textSize="16sp"
+                                                android:textStyle="bold" />
+
+                                            <androidx.recyclerview.widget.RecyclerView
+                                                android:id="@+id/recycler_view_dep4"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                tools:itemCount="1"
+                                                tools:listitem="@layout/item_process_product"></androidx.recyclerview.widget.RecyclerView>
+
+
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/txt_balance_product"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="50dp"
+                                        android:layout_gravity="end"
+                                        android:background="@color/col_3_head"
+                                        android:padding="10dp"
+                                        android:text="คงเหลือ =  "
+                                        android:textSize="20sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <!--Check Product-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        app:cardCornerRadius="5dp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight=".04"
+                                android:background="@color/SUN_FLOWER">
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:padding="10dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="ตรวจสินค้า"
+                                        android:textSize="20sp" />
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:layout_marginBottom="10dp"
+                                        android:layout_marginTop="10dp"
+                                        android:alpha=".6"
+                                        android:background="@android:color/darker_gray" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+                                        <!--depart-->
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:orientation="horizontal"
+                                            android:padding="10dp">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1">
+
+                                                <TextView
+                                                    android:id="@+id/txt_check_pro_count_complate"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:gravity="center_vertical"
+                                                    android:text="จำนวนตรวจสินค้า : " />
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1">
+
+                                                <TextView
+                                                    android:id="@+id/txt_check_pro_count_check"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:gravity="center_vertical"
+                                                    android:text="จำนวนผลิตเสร็จ : " />
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1">
+
+                                                <TextView
+                                                    android:id="@+id/txt_check_pro_percent"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:gravity="center_vertical"
+                                                    android:text="เปอร์เซ็นต์ (%) : " />
+                                            </LinearLayout>
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:orientation="horizontal"
+                                            android:padding="10dp">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1">
+
+                                                <TextView
+                                                    android:id="@+id/txt_check_pro_status"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:gravity="center_vertical"
+                                                    android:text="สินค้า : " />
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1">
+
+                                                <TextView
+                                                    android:id="@+id/txt_check_pro_note"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:gravity="center_vertical"
+                                                    android:text="หมายเหตุ : " />
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1">
+
+                                                <TextView
+                                                    android:id="@+id/txt_check_pro_name"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:gravity="center_vertical"
+                                                    android:text="ผู้ตรวจ : " />
+                                            </LinearLayout>
+
+
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:orientation="horizontal"
+                                            android:padding="10dp">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1">
+
+                                                <TextView
+                                                    android:id="@+id/txt_check_pro_date"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:gravity="center_vertical"
+                                                    android:text="วัน/เวลา ตรวจ : " />
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1">
+
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1">
+
+                                            </LinearLayout>
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:orientation="horizontal">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1">
+
+                                            </LinearLayout>
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <!--Receive Product-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        app:cardCornerRadius="5dp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight=".05"
+                                android:background="@color/AMETHYST">
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:padding="10dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="รับสินค้า"
+                                        android:textSize="20sp" />
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:layout_marginBottom="10dp"
+                                        android:layout_marginTop="10dp"
+                                        android:alpha=".6"
+                                        android:background="@android:color/darker_gray" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+                                        <!--receive-->
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:orientation="horizontal"
+                                            android:padding="10dp">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1">
+
+                                                <TextView
+                                                    android:id="@+id/txt_receive_product"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:gravity="center_vertical"
+                                                    android:text="จำนวนรับสินค้า :" />
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1">
+
+                                                <TextView
+                                                    android:id="@+id/txt_receive_note"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:gravity="center_vertical"
+                                                    android:text="หมายเหตุ :" />
+                                            </LinearLayout>
+
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:orientation="horizontal"
+                                            android:padding="10dp">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1">
+
+                                                <TextView
+                                                    android:id="@+id/txt_recevie_name"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:gravity="center_vertical"
+                                                    android:text="ผู้รับ :" />
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1">
+
+                                                <TextView
+                                                    android:id="@+id/txt_receive_date"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:gravity="center_vertical"
+                                                    android:text="วัน/เวลา รับ :" />
+                                            </LinearLayout>
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="1"
+                                            android:orientation="horizontal">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1">
+
+                                            </LinearLayout>
+                                        </LinearLayout>
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+
+</LinearLayout>
